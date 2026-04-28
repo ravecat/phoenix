@@ -13,6 +13,7 @@
       in {
         devShells.default = pkgs.mkShell {
           packages = [
+            pkgs.actionlint
             pkgs.git
             pkgs.nodejs_22
             pkgs.pnpm

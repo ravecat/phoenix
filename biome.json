@@ -16,6 +16,18 @@
       "recommended": true
     }
   },
+  "overrides": [
+    {
+      "includes": ["release.config.mjs"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noTemplateCurlyInString": "off"
+          }
+        }
+      }
+    }
+  ],
   "javascript": {
     "formatter": {
       "quoteStyle": "double",
