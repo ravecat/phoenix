@@ -24,6 +24,16 @@
     "README.md",
     "LICENSE"
   ],
+  "keywords": [
+    "phoenix",
+    "phoenix-channels",
+    "channels",
+    "websocket",
+    "realtime",
+    "reactive",
+    "state",
+    "nanostores"
+  ],
   "scripts": {
     "check": "pnpm run lint && pnpm run typecheck",
     "format": "biome format --write .",
