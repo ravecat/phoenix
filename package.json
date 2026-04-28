@@ -6,10 +6,7 @@
   "type": "module",
   "sideEffects": false,
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/",
-    "tag": "latest",
-    "provenance": true
+    "access": "public"
   },
   "repository": {
     "type": "git",
