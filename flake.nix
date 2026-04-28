@@ -15,7 +15,7 @@
           packages = [
             pkgs.actionlint
             pkgs.git
-            pkgs.nodejs_22
+            pkgs.nodejs_24
             pkgs.pnpm
           ];
         };

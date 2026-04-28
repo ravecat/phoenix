@@ -77,7 +77,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish confirmed default branch release
+      - name: Publish confirmed release
         if: >-
           github.ref_name == env.DEFAULT_BRANCH &&
           github.event_name == 'workflow_dispatch' &&
