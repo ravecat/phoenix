@@ -10,7 +10,7 @@ channel.
 ## Basic usage
 
 ```ts
-import { createSession } from "@rvct/phoenix"
+import { session } from "@rvct/phoenix"
 import { Socket } from "phoenix"
 
 const socket = new Socket("/socket", {
@@ -19,7 +19,7 @@ const socket = new Socket("/socket", {
 
 socket.connect()
 
-const room = createSession(socket, {
+const room = session(socket, {
   topic: "room:lobby",
 })
 
@@ -42,7 +42,7 @@ messages, and handle channel failures. Client applications usually need a slight
 shape. They need the transport, the latest useful state, and the connection or join error state in
 one subscription surface.
 
-`createSession` keeps those concerns together:
+`session` keeps those concerns together:
 
 - `push` preserves direct access to channel messages sent to the server
 - `value` keeps the latest state derived from the join reply and incoming events
@@ -67,7 +67,7 @@ type RoomState = {
   messages: Message[]
 }
 
-const room = createSession<{ value: RoomState }>(socket, {
+const room = session<{ value: RoomState }>(socket, {
   topic: "room:lobby",
   value: {
     messages: [],
@@ -93,7 +93,7 @@ type RoomSession = {
   }
 }
 
-const room = createSession<RoomSession>(socket, {
+const room = session<RoomSession>(socket, {
   topic: "room:lobby",
   value: {
     messages: [],
@@ -126,7 +126,7 @@ type RoomEvents = {
   }
 }
 
-const room = createSession<{
+const room = session<{
   value: RoomState
   connect: {
     ok: {

@@ -80,7 +80,7 @@ type Session<TSpec extends SessionSpec> = SessionCore<TSpec> & {
   ): SessionReadable<ValueOf<TSpec>> & TExtension
 }
 
-export function createSession<TSpec extends SessionSpec>(
+export function session<TSpec extends SessionSpec>(
   socket: Pick<Socket, "channel">,
   config: SessionConfig<TSpec>,
 ): Session<TSpec> {
