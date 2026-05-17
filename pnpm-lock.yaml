@@ -24,6 +24,9 @@ importers:
       '@semantic-release/git':
         specifier: ^10.0.1
         version: 10.0.1(semantic-release@25.0.3(typescript@5.9.3))
+      prettier:
+        specifier: ^3.8.3
+        version: 3.8.3
       semantic-release:
         specifier: 25.0.3
         version: 25.0.3(typescript@5.9.3)
@@ -1292,6 +1295,11 @@ packages:
   postcss@8.5.14:
     resolution: {integrity: sha512-SoSL4+OSEtR99LHFZQiJLkT59C5B1amGO1NzTwj7TT1qCUgUO6hxOvzkOYxD+vMrXBM3XJIKzokoERdqQq/Zmg==}
     engines: {node: ^10 || ^12 || >=14}
+
+  prettier@3.8.3:
+    resolution: {integrity: sha512-7igPTM53cGHMW8xWuVTydi2KO233VFiTNyF5hLJqpilHfmn8C8gPf+PS7dUT64YcXFbiMGZxS9pCSxL/Dxm/Jw==}
+    engines: {node: '>=14'}
+    hasBin: true
 
   pretty-ms@9.3.0:
     resolution: {integrity: sha512-gjVS5hOP+M3wMm5nmNOucbIrqudzs9v/57bWRHQWLYklXqoXKrVfYW2W9+glfGsqtPgpiz5WwyEEB+ksXIx3gQ==}
@@ -2854,6 +2862,8 @@ snapshots:
       nanoid: 3.3.12
       picocolors: 1.1.1
       source-map-js: 1.2.1
+
+  prettier@3.8.3: {}
 
   pretty-ms@9.3.0:
     dependencies:
