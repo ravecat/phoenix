@@ -157,7 +157,7 @@ export function session<TSpec extends SessionSpec>(
 
   const initialState: SessionState<ValueOf<TSpec>, ActionMapOf<TSpec>> = {
     value: config.value ?? null,
-    status: config.value == null ? "loading" : "ready",
+    status: "loading",
     error: null,
     processing: {} as ActionProcessing<ActionMapOf<TSpec>>,
     errors: {} as ActionErrors<ActionMapOf<TSpec>>,
@@ -187,6 +187,12 @@ export function session<TSpec extends SessionSpec>(
         timeouts: { ...current.timeouts, [action]: false },
       }
     })
+  }
+
+  const disconnectStatus = (
+    current: SessionState<ValueOf<TSpec>, ActionMapOf<TSpec>>,
+  ): SessionStatus => {
+    return current.status === "ready" || current.status === "stale" ? "stale" : "failed"
   }
 
   const runAction = <TResult>(action: string, run: () => TResult) => {
@@ -238,7 +244,7 @@ export function session<TSpec extends SessionSpec>(
     const errorRef = channel.onError((reason) => {
       update((current) => ({
         ...current,
-        status: current.value === null ? "failed" : "stale",
+        status: disconnectStatus(current),
         error: { kind: "transport_error", cause: reason },
       }))
     })
@@ -247,7 +253,7 @@ export function session<TSpec extends SessionSpec>(
     const closeRef = channel.onClose(() => {
       update((current) => ({
         ...current,
-        status: current.value === null ? "failed" : "stale",
+        status: disconnectStatus(current),
         error: { kind: "transport_close" },
       }))
     })

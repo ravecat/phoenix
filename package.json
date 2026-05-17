@@ -35,14 +35,15 @@
     "nanostores"
   ],
   "scripts": {
-    "check": "pnpm run lint && pnpm run typecheck",
+    "check": "pnpm run lint && pnpm run typecheck && pnpm run test",
     "format": "biome format --write . && pnpm run format:md",
     "format:md": "prettier --write \"*.md\"",
     "lint": "biome check . && pnpm run lint:md",
     "lint:fix": "biome check --write . && pnpm run format:md",
     "lint:md": "prettier --check \"*.md\"",
     "release": "semantic-release",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.test.json"
   },
   "dependencies": {
     "@types/phoenix": "^1.6.7",
